@@ -1,9 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@500&display=swap');
+:root{
+  --black-color: #151515;
+  --purple-color: #301B3F;
+  --grey-color: #3C415C;
+  --brown-color: #B4A5A5;
+  --header-font: 'Roboto', sans-serif;
+  --header2-font: 'Montserrat', sans-serif;
+  --body-font: 'Roboto', sans-serif;
+
+
+
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: var(--header2-font);
+}
+p{
+  font-family: var(--body-font);
+  line-height: 1.5;
+  font-size: large;
+
+}
+
 html {
+
   margin: 0;
   padding: 0;
 }
 *{
-color: #B4A5A5 !important;
+color: var(--brown-color) !important;
 
 }
 body {
@@ -11,37 +36,72 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: #151515 !important;
+  background-color: #151515fc !important;
+  background-blend-mode: multiply;
   
 }
 .logo{
-  width: 80px;
-  height: 80px;
+  width: 40px;
+  height: 40px;
   border-radius: 100%;
+
+
 }
 .back-black{
-  background-color:#151515 ;
+  background-color:var(--black-color) !important ;
 
 }
 .back-purple {
-  background-color: #301B3F !important;
+  background-color: var(--purple-color) !important;
 }
 .back-grey {
-  background-color: #3C415C;
+  background-color: var(--grey-color) !important;
 }
 .text-brown {
-  color: #B4A5A5;
+  color: var(--brown-color) !important;
 }
 .text-black{
-  color:#151515 !important;
+  color:var(--black-color) !important;
 
 }
 .text-purple {
-  color: #301B3F !important;
+  color: var(--purple-color) !important;
 }
 .text-grey {
- color: #3C415C !important;
+ color: var(--grey-color) !important;
 }
 .text-brown {
-color: #B4A5A5 !important;
+color: var(--brown-color) !important;
 }
+/* Home page images */
+.home-charity-img{
+  width: 300px;
+  height:300px;
+  object-fit: cover;
+  background-blend-mode: multiply;
+  border-radius: 10px;
+}
+.home-headers-text{
+
+}
+
+  @media (max-width: 767px) {
+    .home-charity-img {
+     margin-left: auto;
+      margin-right: auto;
+      margin-top:2rem;
+    }
+    .home-headers-text{
+    
+    }
+  }
+
+  .icons{
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-color: var(--purple-color);
+    color: var(--brown-color);
+    padding: 10px;
+    margin: 10px;
+  }

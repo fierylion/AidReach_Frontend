@@ -1,8 +1,13 @@
 import React from 'react'
-
+import { Section1, Section2, Section3 } from '../components/HomePageSection'
 const Homepage = () => {
   return (
-    <div>Homepage</div>
+    <>
+    <Section1/>
+    <Section2/>
+    <Section3/>
+     
+    </>
   )
 }
 

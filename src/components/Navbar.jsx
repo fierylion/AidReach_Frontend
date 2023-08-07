@@ -3,35 +3,44 @@ import logo from '../assets/log.png'
 const Navbar = () => {
   return (
     <>
-      <nav className='navbar navbar-expand-sm bg-dark navbar-dark'>
-        <div className='container-fluid'>
-          <a className='navbar-brand' href='#'>
-            Logo
-          </a>
+      <nav className='navbar navbar-expand-md back-black pt-3'>
+        <div className='container'>
+          <div>
+            <img src={logo} alt='logo' className='logo ms-3 nav-brand ' />
+            <span className='ms-3 fw-bold'>AidReach</span>
+          </div>
           <button
             className='navbar-toggler'
             type='button'
             data-bs-toggle='collapse'
             data-bs-target='#collapsibleNavbar'
           >
-            <span className='navbar-toggler-icon' />
+            <span className='navbar-toggler-icon ' />
           </button>
-          <div className='collapse navbar-collapse' id='collapsibleNavbar'>
-            <ul className='navbar-nav'>
-              <li className='nav-item'>
+          <div className='collapse navbar-collapse  ' id='collapsibleNavbar'>
+            <ul className='navbar-nav ms-auto me-5 ps-3'>
+              <li className='nav-item m-2'>
                 <a className='nav-link' href='#'>
-                  Link
+                  Home
                 </a>
               </li>
-              <li className='nav-item'>
+              <li className='nav-item m-2'>
                 <a className='nav-link' href='#'>
-                  Link
+                  Login
                 </a>
               </li>
-              <li className='nav-item'>
+              <li className='nav-item m-2'>
                 <a className='nav-link' href='#'>
-                  Link
+                  Sign Up
                 </a>
+              </li>
+              <li
+                className='nav-item
+              m-2'
+              >
+                <button className='btn btn-outline-dark nav-link rounded border px-3'>
+                  Connect
+                </button>
               </li>
             </ul>
           </div>

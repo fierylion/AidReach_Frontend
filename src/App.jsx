@@ -8,12 +8,10 @@ import Navbar from './components/Navbar'
 function App() {
   return (
     <>
-      <main
-        className='container  mt-3'
-        style={{ 'background-color': '#fffff9' }}
-      >
-      <Navbar/>
-        
+      <header className='p-0'>
+        <Navbar />
+      </header>
+      <main className='container  mt-3  p-0 '>
         <Routes />
       </main>
     </>
