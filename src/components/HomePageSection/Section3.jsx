@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import uuid from 'react-uuid'
-const divideToThree = (noEle, arr) => {
-  let sta = 0
-  let en = noEle
-  let result = []
-  while (sta < arr.length) {
-    result.push(arr.slice(sta, en))
-    sta = en
-    en += noEle
-  }
-  return result
-}
+import { useGlobalContext } from '../../context'
+
   
 const Section3 = ({imageCarousel}) => {
- 
+  const {divideToThree} =useGlobalContext()
+ const [noImages, setNoImages] = useState()
   const handleResize = (end=true)=>{
     const width = window.innerWidth;
     if (width < 420){
@@ -30,9 +22,10 @@ const Section3 = ({imageCarousel}) => {
     return 3
     
   }
-   const [noImages, setNoImages] = useState(handleResize(false))
+   
   useEffect(
     ()=>{
+      setNoImages(handleResize())
       window.addEventListener('resize', handleResize)
       return ()=> window.removeEventListener('resize', handleResize)
     },[]

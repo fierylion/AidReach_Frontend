@@ -20,7 +20,7 @@ const Section2 = () => {
             <FaFileContract className='icons' />
             <h3 className='mt-4 mb-2'> NGO Proposals</h3>
           </div>
-          <p className='text-justify'>
+          <p className='text-justify '>
             Verified NGOs post their impactful projects, and the details are
             recorded on the blockchain for complete transparency.
           </p>

@@ -9,7 +9,7 @@ const Section1 = () => {
             <h3 className='text-justify  lh-base'>
               Empowering Transparent Charity Donations with Web3
             </h3>
-            <p className='text-justify my-4 text-wrap'>
+            <p className='text-justify my-4 text-wrap w-100'>
               Join us to revolutionize giving, empowering NGOs, and creating a
               better world through blockchain transparency. Vote for change!
             </p>
