@@ -5,7 +5,7 @@ import { useGlobalContext } from '../../context'
   
 const Section3 = ({imageCarousel}) => {
   const {divideToThree} =useGlobalContext()
- const [noImages, setNoImages] = useState()
+
   const handleResize = (end=true)=>{
     const width = window.innerWidth;
     if (width < 420){
@@ -22,6 +22,7 @@ const Section3 = ({imageCarousel}) => {
     return 3
     
   }
+   const [noImages, setNoImages] = useState(handleResize(false))
    
   useEffect(
     ()=>{
