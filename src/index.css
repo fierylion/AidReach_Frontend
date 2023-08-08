@@ -74,6 +74,13 @@ body {
 color: var(--brown-color) !important;
 }
 /* Home page images */
+.card_img{
+    width: 33vh;
+    height: 33vh ;
+  
+  }
+
+
 .home-charity-img{
   width: 300px;
   height:300px;
@@ -105,3 +112,5 @@ color: var(--brown-color) !important;
     padding: 10px;
     margin: 10px;
   }
+
+ 
