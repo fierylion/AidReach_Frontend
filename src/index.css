@@ -77,6 +77,8 @@ color: var(--brown-color) !important;
 .card_img{
     width: 33vh;
     height: 33vh ;
+    border-radius: 2%;
+
   
   }
 

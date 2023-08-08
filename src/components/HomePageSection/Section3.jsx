@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import uuid from 'react-uuid'
 const divideToThree = (noEle, arr) => {
   let sta = 0
   let en = noEle
@@ -16,12 +16,11 @@ const Section3 = ({imageCarousel}) => {
   const [noImages, setNoImages] = useState(3)
   const handleResize = ()=>{
     const width = window.innerWidth;
-    console.log(width)
-    if (width < 410){
+    if (width < 420){
       setNoImages(1)
       return
     }
-    if (width < 769) {
+    if (width < 830) {
         setNoImages(2)
         return
     }
@@ -38,13 +37,13 @@ const Section3 = ({imageCarousel}) => {
   )
   const images =(imageCarousel)? divideToThree(noImages, imageCarousel): []
   return (
-    <section className='my-5'>
+    <section className='m-4'>
       <div>
         <div id='demo' className='carousel slide' data-bs-ride='carousel'>
           {/* Indicators/dots */}
           <div className='carousel-indicators'>
           { 
-            images.map((arr, ind)=> <button type='button' data-bs-target='#demo' data-bs-slide-to={ind} className={`${ind===0 && 'active'}`}/> )
+            images.map((arr, ind)=> <button type='button' data-bs-target='#demo' data-bs-slide-to={ind} className={`${ind===0 && 'active'}`} key={uuid()}/> )
             
           }
           </div>
@@ -52,7 +51,7 @@ const Section3 = ({imageCarousel}) => {
           <div className='carousel-inner'>
           { images.map((img, ind)=>{
             return (
-              <div className={`carousel-item ${ind === 0 && 'active'}`}>
+              <div className={`carousel-item ${ind === 0 && 'active'}`} key={uuid()}>
                 <div className='row text-center'>
                 { img.map(
                   (singleImage, ind)=>{
@@ -61,7 +60,7 @@ const Section3 = ({imageCarousel}) => {
                       [1, 12], [2, 6], [3, 4]
                     ])
 
-                   return  (<div className={`col-${imgWidthMap.get(noImages)}`} key={ind}>
+                   return  (<div className={`col-${imgWidthMap.get(noImages)}`} key={uuid()}>
                     <img src={singleImage} alt={`Image ${ind}`} className='card_img' />
                   </div>)}
                 )
