@@ -41,6 +41,16 @@ body {
   background-blend-mode: multiply;
   
 }
+.last_image{
+  width: 300px;
+  height:300px;
+  object-fit: cover;
+  border-radius: 1%;
+  background-blend-mode: multiply;
+  padding: 0 !important;
+  
+
+}
 .logo{
   width: 40px;
   height: 40px;
@@ -135,6 +145,19 @@ color: var(--brown-color) !important;
   border-radius: 10px;
 }
 .home-headers-text{
+
+}
+.footer_links{
+  text-decoration: none ;
+  font-size: smaller;
+  cursor: pointer;
+  color: #60646e;
+
+}
+.footer_icons{
+  font-size: 1.5rem;
+  margin: 10px;
+  cursor: pointer;
 
 }
 

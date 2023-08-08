@@ -5,15 +5,19 @@ import {FaHandHoldingWater} from 'react-icons/fa'
 import {MdCastForEducation} from 'react-icons/md'
 const Section5 = () => {
   return (
-    <section className='m-5'>
+    <section className='m-5' id='sect5'>
       <div className='row '>
         <div className='col-sm-6'>
           <h3 className='mb-sm-3 mb-md-5'>
             Connect with Nonprofit Organizations Worldwide{' '}
           </h3>
           <p className='mb-sm-3 mb-md-5 fs-6 w-75'>
-            Embrace a World of Impactful Connections. Immerse yourself in a
-            network of esteemed nonprofit organizations from across the globe.
+            <small>
+              We envision a world where every charitable contribution, no matter
+              how small, leads to significant positive change. By combining
+              blockchain technology with a community-driven approach, we foster
+              transparency, trust, and collaboration among donors and NGOs.
+            </small>
           </p>
           <button className='btn btn-outline-dark border'>Donate</button>
         </div>

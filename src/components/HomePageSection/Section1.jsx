@@ -3,7 +3,7 @@ import charityImage from '../../assets/charit.png'
 const Section1 = () => {
   return (
     <>
-      <section className='py-5'>
+      <section className='py-5' id='sect1'>
         <div className='d-flex flex-wrap justify-content-between home-headers-text'>
           <div className='text-justify w-50  mx-4'>
             <h3 className='text-justify  lh-base'>

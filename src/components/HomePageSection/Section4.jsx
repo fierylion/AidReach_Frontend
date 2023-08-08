@@ -13,7 +13,7 @@ const Section4 = () => {
  const {inViewport, enterCount} = useInViewport(myRef, {}, {}, {});
 
   return (
-    <section className='p-3 my-5' ref={myRef}>
+    <section className='p-3 my-5' id='sect4' ref={myRef}>
       {inViewport && (
         <div className='text-center'>
           <div className='row'>

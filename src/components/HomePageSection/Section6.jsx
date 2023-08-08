@@ -33,10 +33,10 @@ const Section6 = ({propos}) => {
  const dividedArr = divideToThree(noImages, propos);
 
   return (
-    <section className='m-5'>
+    <section className='m-5' id='sect6'>
       <div>
         <div className='d-flex justify-content-around'>
-          <h3>Vote for some of our proposals</h3>
+          <h3>Vote for some of the proposals</h3>
           <div>
             <button
               className='btn btn-outline-warning mx-3 my-1'
@@ -54,7 +54,7 @@ const Section6 = ({propos}) => {
             </button>
           </div>
         </div>
-        
+
         <div className='mt-5 '>
           <ProposalCards proposals={dividedArr[page]} />
         </div>

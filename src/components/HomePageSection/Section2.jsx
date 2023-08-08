@@ -13,7 +13,7 @@ const Section2 = () => {
   // Decentralized Governance: The blockchain governs the allocation of funds. The project with the most votes receives the funds, ensuring complete fairness and accountability.-
 
   return (
-    <section className='my-5'>
+    <section className='my-5' id='sect2'>
       <div className='row mx-2'>
         <div className='col-md-6 p-3'>
           <div className='text-center mb-4'>
