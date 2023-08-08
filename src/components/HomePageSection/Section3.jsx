@@ -26,7 +26,7 @@ const Section3 = ({imageCarousel}) => {
    
   useEffect(
     ()=>{
-      setNoImages(handleResize())
+      
       window.addEventListener('resize', handleResize)
       return ()=> window.removeEventListener('resize', handleResize)
     },[]
