@@ -13,22 +13,24 @@ const divideToThree = (noEle, arr) => {
 }
   
 const Section3 = ({imageCarousel}) => {
-  const [noImages, setNoImages] = useState(3)
-  const handleResize = ()=>{
+ 
+  const handleResize = (end=true)=>{
     const width = window.innerWidth;
     if (width < 420){
-      setNoImages(1)
-      return
+      end && setNoImages(1)
+      return 1
     }
     if (width < 830) {
-        setNoImages(2)
-        return
+        end && setNoImages(2)
+        return 2
     }
     
 
-    setNoImages(3)
+    end && setNoImages(3)
+    return 3
     
   }
+   const [noImages, setNoImages] = useState(handleResize(false))
   useEffect(
     ()=>{
       window.addEventListener('resize', handleResize)
