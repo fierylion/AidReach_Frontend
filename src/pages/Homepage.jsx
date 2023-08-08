@@ -18,7 +18,7 @@ const Homepage = () => {
       <Section6 propos={[1, 2, 3, 4, 5, 6]} />
       <Section7 />
       <footer>
-        <div className='container-fluid bg-dark text-light'>
+        <div className='container-fluid'>
           <div className='row'>
             <div className='col-6 text-center'>
               <h5 className='my-2'>Managed By</h5>
@@ -26,14 +26,14 @@ const Homepage = () => {
                 <img src={logo} alt='logo' className='logo ' />
                 <h3 className='text-center ms-3 d-inline-block'>Aid Reach</h3>
               </div>
-              <div className='d-flex flex-row justify-content-around '>
-                <BsFacebook className='footer_icons' />
-                <AiFillTwitterCircle className='footer_icons' />
-                <AiFillGithub className='footer_icons' />
-                <AiFillInstagram className='footer_icons' />
+              <div className=''>
+                <BsFacebook className='footer_icons mx-2' />
+                <AiFillTwitterCircle className='footer_icons mx-2' />
+                <AiFillGithub className='footer_icons mx-2' />
+                <AiFillInstagram className='footer_icons mx-2' />
               </div>
             </div>
-            <div className='col-6'>
+            <div className='col-6 text-center'>
               <h5 className='my-2'>Links</h5>
               <ul className='list-unstyled'>
                 <li>

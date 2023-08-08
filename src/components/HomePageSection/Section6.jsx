@@ -5,10 +5,14 @@ import {AiOutlineArrowRight} from 'react-icons/ai'
 import { BiSolidDownvote } from 'react-icons/bi'
 import { BiSolidUpvote } from 'react-icons/bi'
 import uuid from 'react-uuid';
+import { useInViewport } from 'react-in-viewport'
 
 const Section6 = ({propos}) => {
  const [page, setPage] = React.useState(0);
  const {divideToThree}=useGlobalContext();
+  const myRef = React.useRef()
+   const { inViewport, enterCount } = useInViewport(myRef, {}, {}, {})
+  
 
    const handleResize = (end = true) => {
      const width = window.innerWidth
@@ -33,33 +37,37 @@ const Section6 = ({propos}) => {
  const dividedArr = divideToThree(noImages, propos);
 
   return (
-    <section className='m-5' id='sect6'>
-      <div>
-        <div className='d-flex justify-content-around'>
-          <h3>Vote for some of the proposals</h3>
-          <div>
-            <button
-              className='btn btn-outline-warning mx-3 my-1'
-              onClick={() =>
-                setPage((page - 1 + dividedArr.length) % dividedArr.length)
-              }
-            >
-              <AiOutlineArrowLeft />
-            </button>
-            <button
-              className='btn btn-outline-warning mx-3 my-1'
-              onClick={() => setPage((page + 1) % dividedArr.length)}
-            >
-              <AiOutlineArrowRight />
-            </button>
+    <>
+      <section className='m-5 move_effect' id='sect6' ref={myRef}>
+      { inViewport &&
+        <div>
+          <div className='d-flex justify-content-around move_effect'>
+            <h3>Vote for some of the proposals</h3>
+            <div>
+              <button
+                className='btn btn-outline-warning mx-3 my-1'
+                onClick={() =>
+                  setPage((page - 1 + dividedArr.length) % dividedArr.length)
+                }
+              >
+                <AiOutlineArrowLeft />
+              </button>
+              <button
+                className='btn btn-outline-warning mx-3 my-1'
+                onClick={() => setPage((page + 1) % dividedArr.length)}
+              >
+                <AiOutlineArrowRight />
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div className='mt-5 '>
-          <ProposalCards proposals={dividedArr[page]} />
-        </div>
-      </div>
-    </section>
+          <div className='mt-5 '>
+            <ProposalCards proposals={dividedArr[page]} />
+          </div>
+        </div>}
+      </section>
+    
+    </>
   )
 }
 const ProposalCards=({proposals})=>{

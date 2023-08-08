@@ -160,6 +160,22 @@ color: var(--brown-color) !important;
   cursor: pointer;
 
 }
+.move_effect{
+  transition: 0.5s;
+  animation: animate1 1s ease ;
+
+}
+@keyframes animate1 {
+  0% {
+    transform: translateY(30px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
   @media (max-width: 767px) {
     .home-charity-img {

@@ -15,7 +15,7 @@ const Section4 = () => {
   return (
     <section className='p-3 my-5' id='sect4' ref={myRef}>
       {inViewport && (
-        <div className='text-center'>
+        <div className='text-center move_effect move_effect'>
           <div className='row'>
             <div className=' col-lg-3 col-sm-6 p-3'>
               <h4>Impact Contributions</h4>
