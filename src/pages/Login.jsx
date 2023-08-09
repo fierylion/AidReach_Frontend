@@ -33,7 +33,7 @@ const Login = () => {
   const password = watch('password')
   const onSubmit = (data) => {
     console.log(data)
-    navigate('/donor')
+  
   }
   return (
     <section>
