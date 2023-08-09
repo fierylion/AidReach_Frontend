@@ -37,20 +37,29 @@ const SingleGraph = ({ type, chartData }) => {
 
   const options = {
     title: {
+  
       text: `${type === 'votes' ? 'Votes' : 'Donations'} Over Time`,
-      align: 'center',
+      align: 'left',
       style: {
-        fontSize: '24px',
+        fontSize: '13px',
+        color: '#9915f7',
+        marginRight: '20px',
       },
     },
     stroke: {
-  curve: 'smooth',
+      curve: 'smooth',
     },
+    
     chart: {
       id: `${type}-chart`,
       animation: {
         speed: 1300,
       },
+      background: 'tranparent',
+    },
+
+    axisBorder: {
+      color: 'transparent', // Set the axis border color to transparent
     },
     xaxis: {
       type: 'datetime',
@@ -73,7 +82,7 @@ const SingleGraph = ({ type, chartData }) => {
   ]
 
   return (
-    <div className='col-md-6 p-1'>
+    <div className='col-md-6 p-1 my-3'>
      
       <Chart options={options} series={series} type='line' height={400} />
       <div className='ms-2'>
