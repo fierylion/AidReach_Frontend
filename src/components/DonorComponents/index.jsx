@@ -1,3 +1,4 @@
 import Summary from "./Summary";
 import Graphs from "./Graphs";
-export {Summary, Graphs}
+import DonorProposals from "./DonorProposals";
+export {Summary, Graphs, DonorProposals}

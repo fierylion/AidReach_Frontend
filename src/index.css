@@ -2,10 +2,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@100;500&display=swap');
 :root{
-  --black-color: #151515;
+  --black-color: #10316b30;
   --purple-color: #301B3F;
   --grey-color: #3C415C;
-  --brown-color: #B4A5A5;
+  --brown-color: #0e0d0d;
   --header-font: 'Roboto', sans-serif;
   --header2-font: 'Montserrat', sans-serif;
   --body-font: 'Roboto', sans-serif;
@@ -37,7 +37,7 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: #151515fc !important;
+  background-color: #F2F7FF !important;
   background-blend-mode: multiply;
   
 }
