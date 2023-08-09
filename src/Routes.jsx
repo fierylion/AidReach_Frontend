@@ -19,9 +19,9 @@ const RoutesPage = () => {
           <Route
             path='/donor'
             element={
-              <ProtectedRoute>
+              
                 <DonorPage />
-              </ProtectedRoute>
+              
             }
           />
          

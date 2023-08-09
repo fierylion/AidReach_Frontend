@@ -1,8 +1,18 @@
 import React from 'react'
+import { Summary,Graphs } from '../components/DonorComponents'
 
 const Donor = () => {
   return (
-    <div>Donor</div>
+    <main className='container'>
+    <div className='m-4'>
+    <h3>Welcome Back,</h3>
+    <h5>Daniel</h5>
+    <small>Preview your summary</small>
+
+    </div>
+    <Summary/>
+    <Graphs/>
+    </main>
   )
 }
 
