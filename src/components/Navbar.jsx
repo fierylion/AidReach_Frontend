@@ -1,6 +1,9 @@
 import React from 'react'
 import logo from '../assets/log.png'
+import { useNavigate } from 'react-router-dom'
 const Navbar = () => {
+
+  
   return (
     <>
       <nav className='navbar navbar-expand-md back-black pt-3'>
@@ -20,17 +23,17 @@ const Navbar = () => {
           <div className='collapse navbar-collapse  ' id='collapsibleNavbar'>
             <ul className='navbar-nav ms-auto me-5 ps-3'>
               <li className='nav-item m-2'>
-                <a className='nav-link' href='#'>
+                <a className='nav-link' href='/'>
                   Home
                 </a>
               </li>
               <li className='nav-item m-2'>
-                <a className='nav-link' href='#'>
+                <a className='nav-link' href='/login'>
                   Login
                 </a>
               </li>
               <li className='nav-item m-2'>
-                <a className='nav-link' href='#'>
+                <a className='nav-link' href='/register'>
                   Sign Up
                 </a>
               </li>

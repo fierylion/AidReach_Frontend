@@ -8,6 +8,7 @@ import {AiFillGithub} from 'react-icons/ai'
 import imageCarousel from '../components/HomePageSection/imageCarousel'
 import logo from '../assets/log.png'
 const Homepage = () => {
+  
   return (
     <>
       <Section1 />
