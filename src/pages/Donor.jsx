@@ -3,7 +3,7 @@ import { Summary,Graphs } from '../components/DonorComponents'
 
 const Donor = () => {
   return (
-    <main className='container'>
+    <main className='container-fluid'>
     <div className='m-4'>
     <h3>Welcome Back,</h3>
     <h5>Daniel</h5>

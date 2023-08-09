@@ -73,12 +73,12 @@ const SingleGraph = ({ type, chartData }) => {
   ]
 
   return (
-    <div className='col-md-6 p-4'>
+    <div className='col-md-6 p-1'>
      
       <Chart options={options} series={series} type='line' height={400} />
-      <div className='ms-3 text-center'>
+      <div className='ms-2'>
         <button
-          className={`btn mx-2 ${
+          className={`btn btn-sm mx-2 ${
             timePeriod === 'week' ? 'btn-primary' : 'btn-outline-primary'
           }`}
           onClick={() => setTimePeriod('week')}
@@ -86,7 +86,7 @@ const SingleGraph = ({ type, chartData }) => {
           Week
         </button>
         <button
-          className={`btn mx-2 ${
+          className={`btn btn-sm mx-2 ${
             timePeriod === 'month' ? 'btn-primary' : 'btn-outline-primary'
           }`}
           onClick={() => setTimePeriod('month')}
@@ -94,7 +94,7 @@ const SingleGraph = ({ type, chartData }) => {
           Month
         </button>
         <button
-          className={`btn mx-2 ${
+          className={`btn btn-sm mx-2 ${
             timePeriod === 'year' ? 'btn-primary' : 'btn-outline-primary'
           }`}
           onClick={() => setTimePeriod('year')}
