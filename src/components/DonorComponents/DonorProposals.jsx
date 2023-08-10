@@ -43,7 +43,10 @@ const DonorProposals = ({ propos }) => {
         {inViewport && (
           <div>
             <div className='d-flex justify-content-around move_effect'>
-              <h3>Vote for some of the proposals</h3>
+              <div>
+                <h3>Vote for some of the proposals</h3>
+                <button className='btn btn-success text-light my-2'>Donate</button>
+              </div>
               <div>
                 <button
                   className='btn btn-outline-warning mx-3 my-1'
