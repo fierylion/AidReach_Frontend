@@ -16,15 +16,8 @@ const RoutesPage = () => {
           <Route path='/' element={<HomePage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegistrationPage />} />
-          <Route
-            path='/donor'
-            element={
-              
-                <DonorPage />
-              
-            }
-          />
-         
+          <Route path='/donor' element={<DonorPage />} />
+          <Route path='/ngo' element={<NgoPage />} />
         </Routes>
       </Router>
     </React.Suspense>
