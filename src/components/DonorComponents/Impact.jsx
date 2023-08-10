@@ -10,7 +10,7 @@ const Impact = () => {
       <h1 className='text-center m-4  '>Together We Can !</h1>
       <div className='d-flex justify-content-between flex-wrap'>
         <div>
-          <img src={worldGif} alt='world' className='mx-auto my-3 ' />
+          <img src={worldGif} alt='world' className='d-block mx-auto my-3 w-100' />
         </div>
 
         {inViewport && (
