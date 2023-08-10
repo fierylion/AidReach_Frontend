@@ -135,7 +135,12 @@ color: var(--brown-color) !important;
 
 
 }
-
+.small_text{
+  font-size: small;
+}
+.bold_text{
+  font-weight: 500;
+}
 
 .home-charity-img{
   width: 300px;

@@ -4,7 +4,7 @@ const Summary = () => {
   return (
     <section>
       <div className='row'>
-        <SingleSummary name={'Amount Donated'} amount={'100000 f'}/>
+        <SingleSummary name={'Amount Donated'} amount={'100 f'}/>
         
         <SingleSummary name={'Votes'} amount={120}/>
         
@@ -22,8 +22,8 @@ const SingleSummary =({name, amount})=>{
          <BsThreeDots className='ms-auto' />
        </div>
        <div className='d-flex mt-3'>
-         <h2 className='text-start mb-auto me-1 '>{amount}</h2>
-         <small className='align-self-end'>3d ago</small>
+         <h2 className='text-start mb-auto me-2 text-nowrap'>{amount}</h2>
+         <small className='align-self-end  p-1 bg-warning rounded shadow'>3d ago</small>
        </div>
      </div>
    </div>
