@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import MessageAlerts from '../components/MessageAlerts'
 import * as yup from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -6,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import {FiMail} from 'react-icons/fi'
 import {AiFillEyeInvisible} from 'react-icons/ai'
 import {AiFillEye} from 'react-icons/ai'
+import useFetch from '../hooks'
 const schema = yup
   .object({
     //email
@@ -22,19 +24,39 @@ const schema = yup
   .required()
    
 const Login = () => {
-  const navigate= useNavigate()
+  const navigate = useNavigate()
   const [category, setCategory] = useState('donor')
-  const [showPassword, setShowPassword] = useState(false) 
-  const {register, handleSubmit, watch, formState:{ errors }, setValue} = useForm({
+  const [showPassword, setShowPassword] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+    setValue,
+  } = useForm({
     resolver: yupResolver(schema),
-    mode:'onChange'
+    mode: 'onChange',
   })
   const email = watch('email')
   const password = watch('password')
-  const onSubmit = (data) => {
-    console.log(data)
-  
+  //Submitting data
+  const { data, isLoading, error, obtainData } = useFetch()
+  const onSubmit = (details) => {
+    obtainData(
+      category === 'ngo' ? '/ngo/login' : '/donor/login',
+      'post',
+      {email, password}
+    )
   }
+  useEffect(() => {
+    if (data) {
+      localStorage.setItem((category==='donor')?'aidreach_donor':'aidreach_ngo', JSON.stringify({token:data.token,type:category, data:(category==='donor')?data.donor:data.ngo}))
+      navigate((category==='donor')?'/donor':'/ngo')
+    }
+    if (error) {
+      console.log(error)
+    }
+  }, [data, error])
   return (
     <section>
       <div className='container size_input h-75 mx-auto'>
@@ -44,7 +66,9 @@ const Login = () => {
             <small>
               Welcome back! login with your entered during registration
             </small>
-            <div className='my-3'>Login as {(category==='ngo'?'an organization':'a donor')}</div>
+            <div className='my-3'>
+              Login as {category === 'ngo' ? 'an organization' : 'a donor'}
+            </div>
             <div className='d-flex flex-column '>
               <button
                 className={`btn ${
@@ -63,6 +87,20 @@ const Login = () => {
                 Ngo
               </button>
             </div>
+          </div>
+          <div>
+            {error && (
+              <MessageAlerts
+                msg={error.response?.data?.msg || error.response?.data?.err}
+                color={'danger'}
+              />
+            )}
+            {isLoading && (
+              <MessageAlerts
+                msg={'Submitting details, Please wait!'}
+                color={'warning'}
+              />
+            )}
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className='row form-row'>
@@ -94,7 +132,10 @@ const Login = () => {
               </div>
               <div className='col-12 mt-5 mb-4'>
                 <div className='d-flex'>
-                  <span className='text-muted p-2 link rounded' onClick={()=>setShowPassword(!showPassword)}>
+                  <span
+                    className='text-muted p-2 link rounded'
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
                     {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
                   </span>
                   <input
@@ -103,7 +144,9 @@ const Login = () => {
                       (errors.password && 'is-invalid') || ''
                     }}`}
                     placeholder={
-                      category === 'ngo' ? 'Organization Password' : 'Your Password'
+                      category === 'ngo'
+                        ? 'Organization Password'
+                        : 'Your Password'
                     }
                     {...register('password')}
                     value={password}

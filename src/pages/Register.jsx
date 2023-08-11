@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as yup from 'yup'
 import { useForm, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -10,8 +10,8 @@ import { BsChatQuote } from 'react-icons/bs'
 import {CountryDropdown, RegionDropdown} from 'react-country-region-selector'
 import PhoneInput from 'react-phone-number-input/input'
 import 'react-phone-number-input/style.css'
-
-
+import useFetch from '../hooks'
+import MessageAlerts from '../components/MessageAlerts'
 const Register = () => {
   const navigate = useNavigate()
   const [category, setCategory] = useState('donor')
@@ -37,13 +37,17 @@ const Register = () => {
           'reg-no-required',
           'Organization Registration number is required for ngos, Should be greater than 3 characters',
           function (value) {
+            if(category !=='ngo'){
+              return true
+            }
             const valueLength = value.length;
             if(category==='ngo'){
               return valueLength>=3
             }
-            return true
+         
           }
         ),
+      cat: yup.string(),
       country: yup.string().required('Please select a country'),
       region: yup.string().required('Please select a region'),
       phone: yup.string().required('Please enter your phone number!'),
@@ -80,11 +84,28 @@ const Register = () => {
   const country = watch('country')
   const phone = watch('phone')
   const region = watch('region')
+  const cat = watch('cat')
   const verifyPass = watch('verifyPass')
-  const onSubmit = (data) => {
-    console.log(data)
+
+  //Submitting data
+  const { data, isLoading, error, obtainData } = useFetch()
+  const onSubmit = (details) => {
+    const {name,email,password, phone:phoneNumber, region, country, cat, reg_no  } = details
+    const donor_data = {name,email,password, phoneNumber, region, country, cat}
+    const ngo_data = {name,email,password, phoneNumber, region, country, reg_no}
+    obtainData((category==='ngo')?'/ngo/register':'/donor/register', 'post', (category==='ngo')?ngo_data:donor_data )
     
   }
+  useEffect(
+    ()=>{
+      if(data){
+        navigate('/login')
+      }
+      if(error){
+      console.log(error)
+      }
+    }, [data, error]
+  )
   return (
     <section className='m-5 d-flex justify-content-center'>
       <div className='container size_input h-75 '>
@@ -114,6 +135,21 @@ const Register = () => {
               </button>
             </div>
           </div>
+          <div>
+            {error && (
+              <MessageAlerts
+                msg={error.response?.data?.msg || error.response?.data?.err}
+                color={'danger'}
+              />
+            )}
+            {isLoading && (
+              <MessageAlerts
+                msg={'Submitting details, Please wait!'}
+                color={'warning'}
+              />
+            )}
+          </div>
+
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className='row form-row'>
               <div className='p-3 col-6'>
@@ -253,6 +289,8 @@ const Register = () => {
                     name='category'
                     id='category'
                     className='form-control'
+                    {...register('cat')}
+                    value={cat}
                   >
                     <option value='Individual'>Individual Donor</option>
                     <option value='Organization'>Organization</option>

@@ -1,7 +1,7 @@
 import React, { useContext, useReducer, useState, useEffect } from 'react'
 const AppContext = React.createContext()
 const AppProvider = ({ children }) => {
-  const [userToken, setUserToken] = useState(null)
+  const [userData, setUserData] = useState(localStorage.getItem('aidreach_donor')||localStorage.getItem('aidreach_ngo')||null)
   
   const divideToThree = (noEle, arr) => {
     let sta = 0
@@ -20,8 +20,8 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
-        userToken,
-        setUserToken,
+       userData,
+        setUserData,
         divideToThree,
         
       }}
