@@ -37,7 +37,7 @@ const Login = () => {
   }
   return (
     <section>
-      <div className='container w-75 h-75'>
+      <div className='container size_input h-75 mx-auto'>
         <div>
           <div>
             <h2>Log in to Aid Reach</h2>
@@ -68,7 +68,7 @@ const Login = () => {
             <div className='row form-row'>
               <div className='col-12'>
                 <div className='d-flex'>
-                  <span className='bg-success rounded p-2'>
+                  <span className='text-muted rounded p-2'>
                     <FiMail />
                   </span>
 
@@ -94,7 +94,7 @@ const Login = () => {
               </div>
               <div className='col-12 mt-5 mb-4'>
                 <div className='d-flex'>
-                  <span className='bg-success p-2 link rounded'>
+                  <span className='text-muted p-2 link rounded' onClick={()=>setShowPassword(!showPassword)}>
                     {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
                   </span>
                   <input

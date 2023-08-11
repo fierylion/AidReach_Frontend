@@ -4,16 +4,16 @@ const Summary = () => {
   return (
     <section>
       <div className='row'>
-        <SingleSummary name={'Donated'} amount={'100 f'}/>
+        <SingleSummary name={'Received'} amount={'100 tFil'} isFC = {true}/>
         
-        <SingleSummary name={'Votes'} amount={120}/>
+        <SingleSummary name={'Proposals'} amount={120} isFC = {false}/>
         
        
       </div>
     </section>
   )
 }
-const SingleSummary =({name, amount})=>{
+const SingleSummary =({name, amount, isFC})=>{
  return (
    <div className='col-sm-6  '>
      <div className='m-5 text-center border h-75 w-75 shadow rounded p-4 d-flex flex-column '>

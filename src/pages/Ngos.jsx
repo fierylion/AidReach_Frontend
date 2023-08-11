@@ -5,11 +5,13 @@ import {
   DonorProposals,
   Impact,
   Invite,
-  VerificationComponent
+  VerificationComponent,
+  ProposalModal,
+  VerificationModal
 } from '../components/NgoComponents'
 
 const Ngos = () => {
-  const isVerified = false;
+  const isVerified = true;
   return (
     <article className='container-fluid'>
       <div className='m-4'>
@@ -18,7 +20,7 @@ const Ngos = () => {
         {isVerified && <small>Preview your summary</small>}
       </div>
       { !isVerified && 
-      <VerificationComponent status={'pending'}/>
+      <VerificationComponent status={'unsubmitted'}/>
       }
 
       {isVerified && (
@@ -30,6 +32,8 @@ const Ngos = () => {
       )}
       <Impact />
       <Invite />
+      <ProposalModal/>
+      <VerificationModal/>
     </article>
   )
 }

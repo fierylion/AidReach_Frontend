@@ -29,7 +29,7 @@ html {
   padding: 0;
 }
 *{
-color: var(--brown-color) !important;
+color: var(--brown-color) ;
 
 }
 body {
@@ -141,7 +141,17 @@ color: var(--brown-color) !important;
 .bold_text{
   font-weight: 570;
 }
-
+.size_input{
+  width:90vw !important;
+  
+}
+@media (min-width: 768px) {
+  .size_input{
+  width: 50vw !important;
+    
+  }
+  
+}
 .home-charity-img{
   width: 300px;
   height:300px;

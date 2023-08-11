@@ -18,7 +18,7 @@ const Impact = () => {
             <div className='m-2 my-3'>
               <h2>Donations</h2>
               <h3>
-                <CountUp start={0} end={1000} duration={2.4} /> f
+                <CountUp start={0} end={1000} duration={2.4} /> tFil
               </h3>
             </div>
             <div className='m-2 my-3'>

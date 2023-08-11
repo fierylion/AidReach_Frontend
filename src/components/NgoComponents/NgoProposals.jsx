@@ -7,7 +7,7 @@ import { BiSolidUpvote } from 'react-icons/bi'
 import uuid from 'react-uuid'
 import { useInViewport } from 'react-in-viewport'
 
-const DonorProposals = ({ propos }) => {
+const NgoProposals = ({ propos }) => {
   const [page, setPage] = React.useState(0)
   const [mouseOver, setMouseOver] = React.useState('false')
   const { divideToThree } = useGlobalContext()
@@ -44,8 +44,16 @@ const DonorProposals = ({ propos }) => {
           <div>
             <div className='d-flex justify-content-around move_effect'>
               <div>
-                <h3>Vote for some of the proposals</h3>
-                <button className='btn btn-success text-light my-2'>Donate</button>
+                <h3>Monitor the Progress of Your Proposals</h3>
+                <button
+                  className='btn btn-success text-light my-2'
+                  type='button'
+                  data-bs-toggle='modal'
+                  data-bs-target='#proposalModal'
+                >
+                  Propose
+                </button>
+           
               </div>
               <div>
                 <button
@@ -113,12 +121,9 @@ const ProposalCards = ({ proposals }) => {
                   </div>
                   <div>
                     <div className='my-1'>
-                      <div>
-                        <BiSolidUpvote id='vote_btn' />
-                      </div>
-                      <div>
-                        <BiSolidDownvote id='vote_btn' />
-                      </div>
+                    <h6 className='p-0 m-0'>State</h6>
+                    <p className='small_text p-0 m-0 fw-bold text-muted'>Voting</p>
+                  
                     </div>
                   </div>
                 </div>
@@ -131,4 +136,4 @@ const ProposalCards = ({ proposals }) => {
   )
 }
 
-export default DonorProposals
+export default NgoProposals

@@ -86,8 +86,8 @@ const Register = () => {
     
   }
   return (
-    <section className='m-5'>
-      <div className='container w-75 h-75'>
+    <section className='m-5 d-flex justify-content-center'>
+      <div className='container size_input h-75 '>
         <div>
           <div className='mx-auto'>
             <h2>Register</h2>
@@ -98,7 +98,7 @@ const Register = () => {
             <div className='d-flex flex-column '>
               <button
                 className={`btn ${
-                  category === 'donor' ? 'bg-success' : 'btn-outline-dark'
+                  category === 'donor' ? 'bg-success' : 'btn-outline-success'
                 } my-3`}
                 onClick={() => setCategory('donor')}
               >
@@ -106,7 +106,7 @@ const Register = () => {
               </button>
               <button
                 className={`btn ${
-                  category === 'ngo' ? 'bg-success' : 'btn-outline-dark'
+                  category === 'ngo' ? 'bg-success' : 'btn-outline-success'
                 } my-3`}
                 onClick={() => setCategory('ngo')}
               >
@@ -265,7 +265,7 @@ const Register = () => {
                 </label>
                 <div className='d-flex'>
                   <span
-                    className='bg-success p-2 link rounded'
+                    className='bg-muted  p-2 link rounded'
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
@@ -296,7 +296,7 @@ const Register = () => {
                 </label>
                 <div className='d-flex'>
                   <span
-                    className='bg-success p-2 link rounded'
+                    className='bg-muted p-2 link rounded'
                     onClick={() => setShowVerifyPassword(!showVerifyPassword)}
                   >
                     {showVerifyPassword ? (
