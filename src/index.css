@@ -138,6 +138,21 @@ color: var(--brown-color) !important;
 .small_text{
   font-size: small;
 }
+.prop_img{
+  height: 20vh;
+  width: 20vw !important;
+  display: block;
+  margin: auto;
+}
+.card_custom{
+  min-height: 40vh !important;
+}
+a{
+  cursor: pointer;
+}
+.description_text{
+  font-size:medium;
+}
 .bold_text{
   font-weight: 570;
 }

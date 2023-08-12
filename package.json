@@ -16,7 +16,10 @@
     "apexcharts": "^3.41.1",
     "axios": "^1.4.0",
     "bootstrap": "^5.3.1",
+    "buffer": "^6.0.3",
+    "events": "^3.3.0",
     "jquery": "^3.7.0",
+    "process": "^0.11.10",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
     "react-country-region-selector": "^3.6.1",
@@ -28,6 +31,7 @@
     "react-phone-number-input": "^3.3.2",
     "react-router-dom": "^6.14.2",
     "react-uuid": "^2.0.0",
+    "web3": "^4.0.3",
     "yup": "^1.2.0"
   },
   "devDependencies": {

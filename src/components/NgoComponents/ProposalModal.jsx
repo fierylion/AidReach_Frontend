@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import * as yup from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-
+import useFetch from '../../hooks'
+import { useGlobalContext } from '../../context'
+import MessageAlerts from '../MessageAlerts'
 const schema = yup
   .object({
     //email
@@ -42,11 +44,28 @@ const ProposalModal = () => {
   const title = watch('title')
   const description = watch('description')
   const amount = watch('amount')
- 
+ const {ngoData} = useGlobalContext()
 
-  const onSubmit = (data) => {
-    console.log(data)
-  }
+   const { data, isLoading, error, obtainData } = useFetch()
+   const onSubmit = (details) => {
+     const {title, description, amount, image} = details
+     obtainData(
+       'proposals',
+       'post',
+       {
+         title,
+         description,
+         amount,
+         image: image[0],
+       },
+       {
+         headers: {
+           Authorization: 'Bearer ' + ngoData?.token,
+           'Content-Type': 'multipart/form-data',
+         },
+       }
+     )
+   }
   return (
     <section>
       <>
@@ -71,6 +90,30 @@ const ProposalModal = () => {
                 />
               </div>
               <div className='modal-body'>
+                <div>
+                  {data && (
+                    <MessageAlerts
+                      msg={
+                       data.message + ' Feel free to submit another one!' 
+                      }
+                      color={'success'}
+                    />
+                  )}
+                  {error && (
+                    <MessageAlerts
+                      msg={
+                        error.response?.data?.msg || error.response?.data?.err
+                      }
+                      color={'danger'}
+                    />
+                  )}
+                  {isLoading && (
+                    <MessageAlerts
+                      msg={'Submitting details, Please wait!'}
+                      color={'warning'}
+                    />
+                  )}
+                </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className='row form-row'>
                     <div className='col-12 m-2'>

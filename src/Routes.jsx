@@ -19,12 +19,19 @@ const RoutesPage = () => {
           <Route
             path='/donor'
             element={
-              <ProtectedRoute>
+              <ProtectedRoute type={'donor'}>
                 <DonorPage />
               </ProtectedRoute>
             }
           />
-          <Route path='/ngo' element={<NgoPage />} />
+          <Route
+            path='/ngo'
+            element={
+              <ProtectedRoute type={'ngo'}>
+                <NgoPage />{' '}
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </Router>
     </React.Suspense>

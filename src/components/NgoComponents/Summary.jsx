@@ -1,14 +1,20 @@
 import React from 'react'
 import {BsThreeDots} from 'react-icons/bs'
-const Summary = () => {
+const Summary = ({received, noProp, date}) => {
   return (
     <section>
       <div className='row'>
-        <SingleSummary name={'Received'} amount={'100 tFil'} isFC = {true}/>
-        
-        <SingleSummary name={'Proposals'} amount={120} isFC = {false}/>
-        
-       
+        <SingleSummary
+          name={'Received'}
+          amount={`${received} tFill`}
+          isFC={true}
+        />
+
+        <SingleSummary
+          name={'Proposals'}
+          amount={noProp}
+          isFC={false}
+        />
       </div>
     </section>
   )

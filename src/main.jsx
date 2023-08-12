@@ -5,6 +5,11 @@ import './index.css'
 import { AppProvider } from './context'
 import 'bootstrap/dist/js/bootstrap.bundle'
 import 'bootstrap/dist/css/bootstrap.css'
+window.process = {
+  env: {
+    NODE_ENV: 'development',
+  },
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

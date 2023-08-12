@@ -7,21 +7,21 @@ import MessageAlerts from '../MessageAlerts'
 import useFetch from '../../hooks'
 import { useNavigate } from 'react-router-dom'
 
+
 const schema = yup
   .object({
     //email
-    profile: yup.string('Please enter your profile information').required('profile is required'),
-    website: yup
-      .string('Please enter your website link')
-      .required('link is required'),
-    expenditure: yup
-      .string('Please enter your report link')
-      .required('link is required'),
-
+   
+    stake: yup
+      .string('Amount to stake is required')
+      .required('Stake Amount is required'),
+    reason: yup
+      .string('Stake reason is required')
+      .required('Reason is required'),
   })
   .required()
 
-const VerificationModal = () => {
+const VotePopup = ({vote }) => {
   const {
     register,
     handleSubmit,
@@ -32,32 +32,37 @@ const VerificationModal = () => {
     resolver: yupResolver(schema),
     mode: 'onChange',
   })
-  const profile = watch('profile')
-  const website = watch('website')
-  const expenditure = watch('expenditure')
-  const {ngoData} = useGlobalContext()
+ 
+  const reason = watch('reason')
+  const stake = watch('stake')
+  const { donorData } = useGlobalContext()
   const navigate = useNavigate()
 
   const { data, isLoading, error, obtainData } = useFetch()
   const onSubmit = (details) => {
-    const letter = profile
-    obtainData('ngo/verifyDetails', 'post', {
-      letter, website, expenditure    
-    }, {
-      headers:{
-        Authorization: 'Bearer ' + ngoData?.token
+    
+    obtainData(
+      '/donor/vote',
+      'post',
+      {
+        vote, reason, stake
+      },
+      {
+        headers: {
+          Authorization: 'Bearer ' + donorData?.token,
+        },
       }
-    })
+    )
   }
-  if(data){
-    window.location.pathname='/ngo'
+  if (data) {
+    console.log(data)
   }
   return (
     <section>
       <>
         <div
           className='modal fade'
-          id='verificationModal'
+          id='voteModal'
           tabIndex={-1}
           aria-labelledby='exampleModalLabel'
           aria-hidden='true'
@@ -66,7 +71,7 @@ const VerificationModal = () => {
             <div className='modal-content'>
               <div className='modal-header'>
                 <h5 className='modal-title' id='exampleModalLabel'>
-                  Verification Details
+                  One more step, Cast your vote
                 </h5>
                 <button
                   type='button'
@@ -96,43 +101,27 @@ const VerificationModal = () => {
                   <div className='row form-row'>
                     <div className='col-12 m-2'>
                       <div className='d-flex'>
-                        <label htmlFor='title'>Organization Letter</label>
-
-                        <textarea
-                          type='text'
-                          className={`d-inline-block rounded border w-100 ${
-                            (errors.profile && 'is-invalid') || ''
-                          }}`}
-                          placeholder={'Why join us?...'}
-                          {...register('profile')}
-                          value={profile}
-                        />
+                      <h5>Vote: {vote?.cat}</h5> 
                       </div>
-                      {errors.profile ? (
-                        <div className='text-danger'>
-                          {errors.profile?.message}
-                        </div>
-                      ) : (
-                        <div className='text-success'></div>
-                      )}
+                    
                     </div>
                     <div className='col-12 m-2'>
                       <div className='d-flex'>
-                        <label htmlFor='title'>Website URL</label>
+                        <label htmlFor='title'>Stake</label>
 
                         <input
-                          type='text'
+                          type='number'
                           className={`d-inline-block ms-2 rounded border w-100 ${
-                            (errors.website && 'is-invalid') || ''
+                            (errors.stake && 'is-invalid') || ''
                           }}`}
-                          placeholder={'Web link'}
-                          {...register('website')}
-                          value={website}
+                          placeholder={'Stake'}
+                          {...register('stake')}
+                          value={stake}
                         />
                       </div>
-                      {errors.website ? (
+                      {errors.stake ? (
                         <div className='text-danger'>
-                          {errors.website?.message}
+                          {errors.stake?.message}
                         </div>
                       ) : (
                         <div className='text-success'></div>
@@ -140,23 +129,21 @@ const VerificationModal = () => {
                     </div>
                     <div className='col-12 m-2'>
                       <div className='d-flex'>
-                        <label htmlFor='title'>
-                          Organization Expenditure (URL)
-                        </label>
+                        <label htmlFor='title'>Reason</label>
 
                         <input
                           type='text'
                           className={`d-inline-block rounded border w-100 ${
-                            (errors.expenditure && 'is-invalid') || ''
+                            (errors.reason && 'is-invalid') || ''
                           }}`}
-                          placeholder={'report of expenditure'}
-                          {...register('expenditure')}
-                          value={expenditure}
+                          placeholder={'Reason'}
+                          {...register('reason')}
+                          value={reason}
                         />
                       </div>
-                      {errors.expenditure ? (
+                      {errors.reason ? (
                         <div className='text-danger'>
-                          {errors.expenditure?.message}
+                          {errors.reason?.message}
                         </div>
                       ) : (
                         <div className='text-success'></div>
@@ -186,4 +173,4 @@ const VerificationModal = () => {
   )
 }
 
-export default VerificationModal
+export default VotePopup
