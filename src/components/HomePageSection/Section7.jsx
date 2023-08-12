@@ -1,11 +1,11 @@
 import React from 'react'
 import lastImage from '../../assets/join.png'
 import { useInViewport } from 'react-in-viewport'
+import { useNavigate } from 'react-router-dom'
 const Section7 = () => {
  const myRef = React.useRef()
   const { inViewport, enterCount } = useInViewport(myRef, {}, {}, {})
-  
-
+  const navigate = useNavigate()
   return (
     <>
       <section className='m-5 p-3 ' id='sect7' ref={myRef}>
@@ -26,7 +26,7 @@ const Section7 = () => {
                 transparent and impactful charity donations. Together, we can
                 make a lasting difference. Join us today!
               </p>
-              <button className='btn btn-outline-dark border'>Join Us</button>
+              <button className='btn btn-outline-dark border' onClick={()=>navigate('/register')}>Join Us</button>
             </div>
           </div>
         )}
