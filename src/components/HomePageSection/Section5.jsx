@@ -4,14 +4,13 @@ import {MdHealthAndSafety} from 'react-icons/md'
 import {FaHandHoldingWater} from 'react-icons/fa'
 import {MdCastForEducation} from 'react-icons/md'
 import { useInViewport } from 'react-in-viewport'
+import Fade from 'react-reveal/Fade'
 const Section5 = () => {
-  const myRef = React.useRef()
-  const { inViewport, enterCount } = useInViewport(myRef, {}, {}, {})
- 
+
   return (
     <>
-      <section className='m-5 ' id='sect5' ref={myRef}>
-        {inViewport && (
+      <section className='m-5 ' id='sect5'>
+        <Fade left>
           <div className='row move_effect'>
             <div className='col-sm-6'>
               <h3 className='mb-sm-3 mb-md-5'>
@@ -64,7 +63,7 @@ const Section5 = () => {
               </div>
             </div>
           </div>
-        )}
+        </Fade>
       </section>
     </>
   )
