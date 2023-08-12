@@ -2,7 +2,7 @@ import React from 'react'
 import { FaFileContract } from 'react-icons/fa'
 import { GiVote } from 'react-icons/gi'
 import { HiScale } from 'react-icons/hi'
-import Zoom from 'react-reveal/Zoom'
+import {Zoom} from 'react-awesome-reveal'
 const Section2 = () => {
   // scale - balanced - Decentralized
   //check-to-slot - voting

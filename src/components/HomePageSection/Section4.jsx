@@ -4,7 +4,7 @@ import {useInViewport} from 'react-in-viewport'
 import MessageAlerts from '../MessageAlerts'
 import useFetch from '../../hooks'
 import { useGlobalContext } from '../../context'
-import Flip from 'react-reveal/Flip'
+import {Flip} from 'react-awesome-reveal'
 
 const Section4 = () => {
   // no of donors, proposals, ngos, donations

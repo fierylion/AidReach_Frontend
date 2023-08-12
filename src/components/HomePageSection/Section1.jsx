@@ -1,7 +1,7 @@
 import React from 'react'
 import charityImage from '../../assets/charit.png'
 
-import Reveal from 'react-reveal/Reveal'
+import Reveal from 'react-awesome-reveal'
 const Section1 = () => {
   
 

@@ -4,7 +4,7 @@ import {MdHealthAndSafety} from 'react-icons/md'
 import {FaHandHoldingWater} from 'react-icons/fa'
 import {MdCastForEducation} from 'react-icons/md'
 import { useInViewport } from 'react-in-viewport'
-import Fade from 'react-reveal/Fade'
+import {Fade} from 'react-awesome-reveal'
 const Section5 = () => {
 
   return (

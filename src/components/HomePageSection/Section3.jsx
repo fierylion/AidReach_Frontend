@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import uuid from 'react-uuid'
 import { useGlobalContext } from '../../context'
-import Flip from 'react-reveal/Flip'
+import {Flip} from 'react-awesome-reveal'
 
   
 const Section3 = ({imageCarousel}) => {
