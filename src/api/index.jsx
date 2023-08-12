@@ -1,3 +1,6 @@
 import axios from 'axios'
-const api = axios.create({ baseURL: 'http://localhost:5000/' })
+const dev = false
+const api = axios.create({
+  baseURL: dev ? 'http://localhost:5000/' : 'https://aidreach.onrender.com',
+})
 export default api
