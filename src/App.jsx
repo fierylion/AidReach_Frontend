@@ -19,7 +19,7 @@ function App() {
       <main className='container  mt-3  p-0 '>
         <Routes />
       </main>
-      <footer>
+      <footer className='footer'>
         <div className='container-fluid'>
           <div className='row'>
             <div className='col-6 text-center'>
