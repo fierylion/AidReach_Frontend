@@ -1,26 +1,13 @@
 import React, { useState } from 'react'
 import Chart from 'react-apexcharts'
 
-const SingleGraph = ({ type, chartData }) => {
+const SingleGraph = ({ type, data }) => {
+  console.log(data)
   const [timePeriod, setTimePeriod] = useState('week')
-  const week = [
-    { x: new Date('2023-08-01T00:00:00').getTime(), y: 100 },
-    { x: new Date('2023-08-02T00:00:00').getTime(), y: 120 },
-    // ... more data points for the week
-  ]
-  const month = [
-    { x: new Date('2023-08-01T00:00:00').getTime(), y: 1000 },
-    { x: new Date('2023-08-02T00:00:00').getTime(), y: 1100 },
-    // ... more data points for the month
-  ]
-  const year = [
-    { x: new Date('2023-01-01T00:00:00').getTime(), y: 12000 },
-    { x: new Date('2023-02-01T00:00:00').getTime(), y: 12500 },
-    // ... more data points for the year
-  ]
-  if (!(week && month && year)) {
-    return <h1>Loading......</h1>
-  }
+  const week =data[0]
+  const month = data[1]
+  const year = data[2]
+ 
 
   const determineTimeFormat = () => {
     switch (timePeriod) {
