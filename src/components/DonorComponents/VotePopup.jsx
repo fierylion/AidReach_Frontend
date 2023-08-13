@@ -85,7 +85,7 @@ const VotePopup = ({vote }) => {
                   {data && (
                     <MessageAlerts
                       msg={
-                        'Thank you for your donation of ' + amount + ' tFill'
+                        'Voted - ' + vote?.cat
                       }
                       color={'success'}
                     />
