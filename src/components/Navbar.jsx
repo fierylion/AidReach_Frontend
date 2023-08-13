@@ -7,6 +7,11 @@ import connectWallet from '../connect'
 const Navbar = () => {
   
   const { ngoData, donorData, setWeb3, web3Instance, setContractInstance, setAccounts } = useGlobalContext()
+  const logOut = ()=>{
+    localStorage.removeItem('aidreach_donor')
+    localStorage.removeItem('aidreach_ngo')
+    window.location.reload()
+  }
   
   return (
     <>
@@ -59,6 +64,12 @@ const Navbar = () => {
                   </a>
                 </li>
               )}
+              {(donorData || ngoData) &&
+              <li className='nav-item m-2'>
+                <a className='nav-link' onClick={()=>logOut()}>
+                  Logout
+                </a>
+              </li>}
               <li
                 className='nav-item
               m-2'
@@ -66,7 +77,9 @@ const Navbar = () => {
                 {!web3Instance && (
                   <button
                     className='btn bg-dark nav-link rounded border px-3 text-white'
-                    onClick={() => connectWallet(setWeb3, setAccounts, setContractInstance)}
+                    onClick={() =>
+                      connectWallet(setWeb3, setAccounts, setContractInstance)
+                    }
                   >
                     Connect
                   </button>
