@@ -82,6 +82,14 @@ const VotePopup = ({vote }) => {
               </div>
               <div className='modal-body'>
                 <div>
+                  {data && (
+                    <MessageAlerts
+                      msg={
+                        'Thank you for your donation of ' + amount + ' tFill'
+                      }
+                      color={'success'}
+                    />
+                  )}
                   {error && (
                     <MessageAlerts
                       msg={
@@ -101,9 +109,8 @@ const VotePopup = ({vote }) => {
                   <div className='row form-row'>
                     <div className='col-12 m-2'>
                       <div className='d-flex'>
-                      <h5>Vote: {vote?.cat}</h5> 
+                        <h5>Vote: {vote?.cat}</h5>
                       </div>
-                    
                     </div>
                     <div className='col-12 m-2'>
                       <div className='d-flex'>
