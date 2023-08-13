@@ -5,9 +5,9 @@ import { useInViewport } from 'react-in-viewport'
 import { useGlobalContext } from '../../context'
 import useFetch from '../../hooks'
 import MessageAlerts from '../MessageAlerts'
+import { Fade } from 'react-awesome-reveal'
 const Impact = () => {
- const myRef = React.useRef()
- const { inViewport, enterCount } = useInViewport(myRef, {}, {}, {})
+  const [count, setCount ] = React.useState(false)
  const { donorData } = useGlobalContext()
  //Submitting data
  const { data, isLoading, error, obtainData } = useFetch()
@@ -24,7 +24,7 @@ const Impact = () => {
  }, [donorData])
  
   return (
-    <section className='m-5 ' ref={myRef}>
+    <section className='m-5 '>
       <div>
         {error && (
           <MessageAlerts
@@ -46,41 +46,59 @@ const Impact = () => {
           />
         </div>
 
-        {inViewport && data && (
+        {data && (
           <div className='mx-auto my-4 p-5 border shadow rounded'>
-            <div className='m-2 my-3'>
-              <h2>Donations</h2>
-              <h3>
-                <CountUp
-                  start={0}
-                  end={Number.parseInt(data.data.donationAmount)}
-                  duration={2.4}
-                />{' '}
-                <span className='small_text text-primary'>tFill</span>
-              </h3>
-            </div>
-            <div className='m-2 my-3'>
-              <h2>NGO's</h2>
-              <h3>
-                <CountUp
-                  start={0}
-                  end={Number.parseInt(data.data.noNgos)}
-                  duration={2.4}
-                />{' '}
-                +
-              </h3>
-            </div>
-            <div className='m-2 my-3'>
-              <h2>Proposals</h2>
-              <h3>
-                <CountUp
-                  start={0}
-                  end={Number.parseInt(data.data.noProposals)}
-                  duration={2.4}
-                />{' '}
-                +
-              </h3>
-            </div>
+            <Fade
+              delay={1e1}
+              cascade
+              damping={1e-1}
+              onVisibilityChange={(inView, entry) => {
+                if (inView) {
+                  setCount(true)
+                } else {
+                  setCount(false)
+                }
+              }}
+            >
+            {count && 
+            <>
+              <div className='m-2 my-3'>
+                <h2>Donations</h2>
+                <h3>
+                  <CountUp
+                    start={0}
+                    end={Number.parseInt(data.data.donationAmount)}
+                    duration={2.4}
+                  />{' '}
+                  <span className='small_text text-primary'>tFill</span>
+                </h3>
+              </div>
+              <div className='m-2 my-3'>
+                <h2>NGO's</h2>
+                <h3>
+                  <CountUp
+                    start={0}
+                    end={Number.parseInt(data.data.noNgos)}
+                    duration={2.4}
+                  />{' '}
+                  +
+                </h3>
+              </div>
+              <div className='m-2 my-3'>
+                <h2>Proposals</h2>
+                <h3>
+                  <CountUp
+                    start={0}
+                    end={Number.parseInt(data.data.noProposals)}
+                    duration={2.4}
+                  />{' '}
+                  +
+                </h3>
+              
+              </div>
+              
+            </>}
+            </Fade>
           </div>
         )}
       </div>

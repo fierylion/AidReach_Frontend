@@ -19,10 +19,20 @@ const Section4 = () => {
   //   ngos: 100,
   //   donations: 100,
   // }
+  const [count, setCount] = React.useState(false)
 
   return (
     <section className='p-3 my-5' id='sect4'>
-      <Flip left>
+      <Flip onVisibilityChange={(inView,entry)=>{
+        if(inView ){
+          setCount(true)
+        }
+        else{
+          setCount(false)
+        }
+
+      }}>
+      { count &&
         <>
           <div>
             {error && (
@@ -86,6 +96,7 @@ const Section4 = () => {
             </div>
           )}
         </>
+      }
       </Flip>
     </section>
   )

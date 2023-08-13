@@ -82,7 +82,7 @@ const SingleGraph = ({ type, chartData }) => {
   ]
 
   return (
-    <div className='col-md-6 p-1 my-3'>
+  <>
      
       <Chart options={options} series={series} type='line' height={400} />
       <div className='ms-2'>
@@ -111,7 +111,7 @@ const SingleGraph = ({ type, chartData }) => {
           Year
         </button>
       </div>
-    </div>
+    </>
   )
 }
 

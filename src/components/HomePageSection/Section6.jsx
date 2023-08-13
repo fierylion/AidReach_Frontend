@@ -5,11 +5,11 @@ import {AiOutlineArrowRight} from 'react-icons/ai'
 import { BiSolidDownvote } from 'react-icons/bi'
 import { BiSolidUpvote } from 'react-icons/bi'
 import uuid from 'react-uuid';
-import { useInViewport } from 'react-in-viewport'
+
 import useFetch from '../../hooks';
 import MessageAlerts from '../MessageAlerts';
 import { useNavigate } from 'react-router-dom';
-
+import {Bounce, Fade, Flip, Slide} from 'react-awesome-reveal'
 const Section6 = ({propos}) => {
   const { data, isLoading, error, obtainData } = useFetch()
   React.useEffect(() => {
@@ -25,9 +25,6 @@ const Section6 = ({propos}) => {
  
  const [page, setPage] = React.useState(0);
  const {divideToThree}=useGlobalContext();
-  const myRef = React.useRef()
-   const { inViewport, enterCount } = useInViewport(myRef, {}, {}, {})
-  
 
    const handleResize = (end = true) => {
      const width = window.innerWidth
@@ -65,8 +62,8 @@ const Section6 = ({propos}) => {
         )}
       </div>
       {dividedArr.length > 0 && (
-        <section className='m-5 move_effect' id='sect6' ref={myRef}>
-          {inViewport && (
+        <section className='m-5 move_effect' id='sect6' >
+          <Fade >
             <div>
               <div className='d-flex justify-content-around move_effect'>
                 <h3>Vote for some of the proposals</h3>
@@ -94,7 +91,7 @@ const Section6 = ({propos}) => {
                 <ProposalCards proposals={dividedArr[page]} />
               </div>
             </div>
-          )}
+          </Fade>
         </section>
       )}
     </>

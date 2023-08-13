@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import uuid from 'react-uuid'
 import { useGlobalContext } from '../../context'
-import {Flip} from 'react-awesome-reveal'
+import {Flip, Rotate} from 'react-awesome-reveal'
 
   
 const Section3 = ({imageCarousel}) => {
@@ -39,7 +39,7 @@ const Section3 = ({imageCarousel}) => {
   return (
     <>
       <section className='m-4 ' id='sect3'>
-        <Flip left>
+        <Rotate >
           <div className='move_effect'>
             <div id='demo' className='carousel slide' data-bs-ride='carousel'>
               {/* Indicators/dots */}
@@ -108,7 +108,7 @@ const Section3 = ({imageCarousel}) => {
               </button>
             </div>
           </div>
-        </Flip>
+        </Rotate>
       </section>
     </>
   )

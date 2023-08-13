@@ -2,7 +2,7 @@ import React from 'react'
 import { FaFileContract } from 'react-icons/fa'
 import { GiVote } from 'react-icons/gi'
 import { HiScale } from 'react-icons/hi'
-import {Zoom} from 'react-awesome-reveal'
+import {Zoom, Slide} from 'react-awesome-reveal'
 const Section2 = () => {
   // scale - balanced - Decentralized
   //check-to-slot - voting
@@ -17,9 +17,9 @@ const Section2 = () => {
   return (
     <>
       <section className='my-5 ' id='sect2'>
-        <Zoom left>
-          <div className='row mx-2 move_effect'>
-            <div className='col-md-6 p-3'>
+        <div className='row mx-2 move_effect'>
+          <div className='col-md-6 p-3'>
+            <Slide cascade damping={0.1} direction='left'>
               <div className='text-center mb-4'>
                 <FaFileContract className='icons' />
                 <h3 className='mt-4 mb-2'> NGO Proposals</h3>
@@ -28,8 +28,11 @@ const Section2 = () => {
                 Verified NGOs post their impactful projects, and the details are
                 recorded on the blockchain for complete transparency.
               </p>
-            </div>
-            <div className='col-md-6 p-3'>
+            </Slide>
+          </div>
+
+          <div className='col-md-6 p-3'>
+            <Slide direction='right'>
               <div className='text-center mb-4'>
                 <GiVote className='icons' />
                 <h3 className='mt-4 mb-2'>Voting Power</h3>
@@ -39,8 +42,11 @@ const Section2 = () => {
                 believe in. Each Filecoin token you contribute grants you voting
                 power.
               </p>
-            </div>
-            <div className='col-md-6 p-3'>
+            </Slide>
+          </div>
+
+          <div className='col-md-6 p-3'>
+            <Slide direction='up'>
               <div className='text-center mb-4'>
                 <HiScale className='icons' />
                 <h3 className=''>Decentralized Governance</h3>
@@ -50,9 +56,9 @@ const Section2 = () => {
                 the most votes receives the funds, ensuring complete fairness
                 and accountability.
               </p>
-            </div>
+            </Slide>
           </div>
-        </Zoom>
+        </div>
       </section>
     </>
   )
